@@ -1,0 +1,72 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+.custom-sidenav{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f1f1f1;
+}
+.custom-transparent{
+  background: rgba(200, 200, 200, 0.5);
+}
+.testClass{
+  color: green;
+}
+.col-sm-9{
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.bodyContent{
+  padding-top: 50px;
+}
+.jumboContainer{
+  padding-bottom: 0px;
+  width: auto;
+}
+.jumbotron{
+margin-bottom: 10px;
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;} 
+}

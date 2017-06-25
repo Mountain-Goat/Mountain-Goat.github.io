@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Main Attractions</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Custom Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!-- Bootstrap CDNs -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	<!-- Sweet Alert CDNs -->
+	<script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+	<link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script><!--  <- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<style type="text/css">
+		/*#map {
+		  height: 500px;
+		  width: auto;
+		  margin: auto;
+		  margin-top: 10px;
+		  align-content: center;
+		}*/
+
+		/*#map{
+		    position: relative;
+		    width: 100%;
+		    padding-bottom: 56.25%;
+		}
+		#map > *{
+		    display: block;
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    left: 0;
+		    margin: 0;
+		    padding: 0;
+		    height: 100%;
+		    width: 100%;
+		}*/
+
+	</style>
+</head>
+<body>
+
+
+	<!-- NAVBAR -->
+
+
+	<nav class="navbar-default navbar-fixed-top">
+		<div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="index.html">
+					<img src="images/silver-fern.jpg" alt="silver-fern-by-david-gibson" style="max-height: 50px;">
+				</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.html" id="inactA" ">Home</a></li>
+					<li><a href="history.html" id="inactB">NZ History</a></li>
+					<li class="active"><a href="main-attractions.html" id="active">Main Attractions</a></li>
+					<li><a href="contact.html" id="inactC">Contact</a></li>
+				</ul>			
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- MAIN CONTENT -->
+
+	<div class="container-fluid text-center bodyContent" style="background: #f1f1f1;">		
+		<div class="row content">
+			<div class="col-sm-3 custom-sidenav">
+				<h2>Popular Attractions</h2>
+				<br>
+				<h4>Parks & Gardens</h4>
+				<p><a href="#" onclick="loadCoord(-37.0131,174.9078,'Auckland Botanic Gardens',12)">Auckland Botanic Gardens</a></p>
+				<p><a href="#" onclick="loadCoord(-36.8589,174.7755,'Auckland Domain',15)">Auckland Domain</a></p>
+				<p><a href="#" onclick="loadCoord(-43.5307,172.6202,'Christchurch Botanic Gardens',16)">Christchurch Botanic Gardens</a></p>
+				<p><a href="#" onclick="loadCoord(-45.6061,167.3608,'Fiordland National Park',10)">Fiordland National Park</a></p>
+				<p><a href="#" onclick="loadCoord(-37.8050,175.3052,'Hamilton Gardens',12)">Hamilton Gardens</a></p>				
+				<p><a href="#" onclick="loadCoord(-39.2727,175.5802,'Tongariro National Park',10)">Tongariro National Park</a></p>
+				<p><a href="#" onclick="loadCoord(-41.2823,174.7675,'Wellington Botanic Garden',14)">Wellington Botanic Garden</a></p>
+				
+				<br>
+				<h4>Natural Attractions</h4>
+				<p><a href="#" onclick="loadCoord(-43.59,170.2566,'Aoraki/Mount Cook National Park',10)">Aoraki/Mount Cook National Park</a></p>
+				<p><a href="#" onclick="loadCoord(-35.1844,174.1646,'Bay of Islands',10)">Bay of Islands</a></p>
+				<p><a href="#" onclick="loadCoord(-38.6486,176.0900,'Huka Falls',12)">Huka Falls</a></p>
+				<p><a href="#" onclick="loadCoord(-38.2608,175.1036,'Waitomo Glowworm Caves',13)">Waitomo Glowworm Caves</a></p>
+
+				<br>
+				<h4>Man Made Attractions</h4>
+				<p><a href="#" onclick="loadCoord(-36.8641,174.7197,'Auckland Zoo',12)">Auckland Zoo</a></p>
+				<p><a href="#" onclick="loadCoord(-37.8721,175.6829,'Hobbiton Movie Set',12)">Hobbiton Movie Set</a></p>
+				<p><a href="#" onclick="loadCoord(-36.8456,174.8173,'Kelly Tarlton\'s Sea Life Aquarium',13)">Kelly Tarlton's Sea Life Aquarium</a></p>
+				<p><a href="#" onclick="loadCoord(-41.2905,174.7821,'Museum of New Zealand Te Papa Tongarewa',13)">Museum of New Zealand Te Papa Tongarewa</a></p>
+				<p><a href="#" onclick="loadCoord(-36.9942,174.8832,'Rainbow\'s End',13)">Rainbow's End</a></p>
+				<p><a href="#" onclick="loadCoord(-36.8484,174.7622,'Sky Tower',16)">Sky Tower</a></p>
+				<p><a href="#" onclick="loadCoord(-39.6450,176.8626,'Splash Planet',12)">Splash Planet</a></p>
+			</div>
+			<div class="col-sm-9 text-left">
+				<div class="embed-responsive embed-responsive-16by9">
+					<div id="map" class="embed-responsive-item"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="container-fluid">
+		<p>Created by Callum Keogh</p>
+	</footer>
+
+	<script type="text/javascript">
+		document.getElementById('active').style.color = "mediumseagreen";
+		/*document.getElementById('inactA').style.color = "seagreen";
+		document.getElementById('inactB').style.color = "seagreen";
+		document.getElementById('inactC').style.color = "seagreen";
+*/	</script>
+
+	<script type="text/javascript">
+		function initMap() {
+
+
+			var mapCanvas = document.getElementById("map");
+			var mapOptions = {
+				zoom:6,
+				center: {lat: -41.125, lng: 173},
+				minZoom: 6
+			};
+			var map = new google.maps.Map(mapCanvas ,mapOptions);
+		}
+
+		function loadCoord(lat,lng,title,zoom) {
+
+			var mapCanvas = document.getElementById("map");
+			var mapOptions = {
+				zoom:zoom,
+				center: {lat: lat, lng: lng},
+				minZoom: 6
+			};
+			var map = new google.maps.Map(mapCanvas ,mapOptions);
+
+			var marker = new google.maps.Marker({
+				position: {lat:lat,lng:lng},
+				map: map,
+				title: title,
+				animation: google.maps.Animation.DROP
+			});
+		}		
+
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASCRTbX534SB8aUOHYt8ZHqwdAtnpPxBs&callback=initMap" async defer></script>
+</body>
+</html>
